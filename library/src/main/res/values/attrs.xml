@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <attr name="blurRadius" format="integer" />
+    <attr name="backgroundColour" format="color" />
+    <attr name="blurBackgroundColourOpacity" format="float" />
+    <attr name="cornerRadius" format="dimension" />
+    <attr name="cornerRadiusTopLeft" format="dimension" />
+    <attr name="cornerRadiusTopRight" format="dimension" />
+    <attr name="cornerRadiusBottomLeft" format="dimension" />
+    <attr name="cornerRadiusBottomRight" format="dimension" />
+
     <declare-styleable name="BlurLinearLayout">
-        <attr name="blurRadius" format="integer" />
-        <attr name="backgroundColour" format="color" />
-        <attr name="blurBackgroundColourOpacity" format="float" />
-        <attr name="cornerRadius" format="dimension" />
-        <attr name="cornerRadiusTopLeft" format="dimension" />
-        <attr name="cornerRadiusTopRight" format="dimension" />
-        <attr name="cornerRadiusBottomLeft" format="dimension" />
-        <attr name="cornerRadiusBottomRight" format="dimension" />
+        <attr name="blurRadius" />
+        <attr name="backgroundColour" />
+        <attr name="blurBackgroundColourOpacity" />
+        <attr name="cornerRadius" />
+        <attr name="cornerRadiusTopLeft" />
+        <attr name="cornerRadiusTopRight" />
+        <attr name="cornerRadiusBottomLeft" />
+        <attr name="cornerRadiusBottomRight" />
+    </declare-styleable>
+
+    <declare-styleable name="BlurFrameLayout">
+        <attr name="blurRadius" />
+        <attr name="backgroundColour" />
+        <attr name="blurBackgroundColourOpacity" />
+        <attr name="cornerRadius" />
+        <attr name="cornerRadiusTopLeft" />
+        <attr name="cornerRadiusTopRight" />
+        <attr name="cornerRadiusBottomLeft" />
+        <attr name="cornerRadiusBottomRight" />
     </declare-styleable>
 </resources>
