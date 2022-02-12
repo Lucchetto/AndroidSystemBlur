@@ -22,7 +22,10 @@ class BlurLinearLayout @JvmOverloads constructor(
     // Opacity applied to the background colour when blur is available
     val blurBackgroundColourOpacity: Float
     val blurRadius: Int
-    val cornerRadius: Int
+    val cornerRadiusTopLeft: Float
+    val cornerRadiusTopRight: Float
+    val cornerRadiusBottomLeft: Float
+    val cornerRadiusBottomRight: Float
 
     init {
         val a = attrs?.let {
@@ -37,14 +40,36 @@ class BlurLinearLayout @JvmOverloads constructor(
                 DEFAULT_BLUR_BACKGROUND_COLOUR_OPACITY
             )
             blurRadius = a.getInteger(R.styleable.BlurLinearLayout_blurRadius, DEFAULT_BLUR_RADIUS)
-            cornerRadius = a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadius, 0)
+
+            val allEdgesCornerRadius = a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadius, 0)
+
+            cornerRadiusTopLeft = formatEdgeCornerRadius(
+                allEdgesCornerRadius,
+                a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadiusTopLeft, -1)
+            )
+            cornerRadiusTopRight = formatEdgeCornerRadius(
+                allEdgesCornerRadius,
+                a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadiusTopRight, -1)
+            )
+            cornerRadiusBottomLeft = formatEdgeCornerRadius(
+                allEdgesCornerRadius,
+                a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadiusBottomLeft, -1)
+            )
+            cornerRadiusBottomRight = formatEdgeCornerRadius(
+                allEdgesCornerRadius,
+                a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadiusBottomRight, -1)
+            )
 
             a.recycle()
         } else {
             backgroundColour = Color.TRANSPARENT
             blurBackgroundColourOpacity = DEFAULT_BLUR_BACKGROUND_COLOUR_OPACITY
             blurRadius = DEFAULT_BLUR_RADIUS
-            cornerRadius = 0
+
+            cornerRadiusTopLeft = 0f
+            cornerRadiusTopRight = 0f
+            cornerRadiusBottomLeft = 0f
+            cornerRadiusBottomRight = 0f
         }
     }
 
@@ -54,7 +79,12 @@ class BlurLinearLayout @JvmOverloads constructor(
         val blurDrawable: BackgroundBlurDrawable = getViewRootImpl().createBackgroundBlurDrawable()
         blurDrawable.setBlurRadius(blurRadius)
         blurDrawable.setColor(applyOpacityToColour(backgroundColour, blurBackgroundColourOpacity))
-        blurDrawable.setCornerRadius(cornerRadius.toFloat())
+        blurDrawable.setCornerRadius(
+            cornerRadiusTopLeft,
+            cornerRadiusTopRight,
+            cornerRadiusBottomLeft,
+            cornerRadiusBottomRight
+        )
 
         background = blurDrawable
     }
@@ -71,6 +101,15 @@ class BlurLinearLayout @JvmOverloads constructor(
         fun applyOpacityToColour(@ColorInt colour: Int, opacity: Float): Int {
             val targetAlpha = Color.alpha(colour) * opacity
             return ColorUtils.setAlphaComponent(colour, targetAlpha.roundToInt())
+        }
+
+        // Consider edgeRadius when more than -1, otherwise use allSidesRadius
+        private fun formatEdgeCornerRadius(allSidesRadius: Int, edgeRadius: Int): Float {
+            return if (edgeRadius > -1) {
+                edgeRadius
+            } else {
+                allSidesRadius
+            }.toFloat()
         }
     }
 } 
