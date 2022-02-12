@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BlurLinearLayout">
+        <attr name="blurRadius" format="integer" />
+        <attr name="backgroundColour" format="color" />
+        <attr name="blurBackgroundColourOpacity" format="float" />
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+</resources>
