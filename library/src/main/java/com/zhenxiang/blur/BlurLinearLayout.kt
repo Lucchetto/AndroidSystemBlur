@@ -71,6 +71,14 @@ class BlurLinearLayout @JvmOverloads constructor(
             cornerRadiusBottomLeft = 0f
             cornerRadiusBottomRight = 0f
         }
+
+        // Setup outline for clipping and shadow
+        outlineProvider = getRoundedOutline(
+            cornerRadiusTopLeft,
+            cornerRadiusTopRight,
+            cornerRadiusBottomLeft,
+            cornerRadiusBottomRight
+        )
     }
 
     override fun onAttachedToWindow() {
