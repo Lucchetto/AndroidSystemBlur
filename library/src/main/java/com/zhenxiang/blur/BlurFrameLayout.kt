@@ -9,8 +9,6 @@ import kotlin.math.roundToInt
 import androidx.core.graphics.ColorUtils
 import androidx.annotation.ColorInt
 
-import com.android.internal.graphics.drawable.BackgroundBlurDrawable
-
 class BlurFrameLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -84,17 +82,18 @@ class BlurFrameLayout @JvmOverloads constructor(
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        val blurDrawable: BackgroundBlurDrawable = getViewRootImpl().createBackgroundBlurDrawable()
-        blurDrawable.setBlurRadius(blurRadius)
-        blurDrawable.setColor(applyOpacityToColour(backgroundColour, blurBackgroundColourOpacity))
-        blurDrawable.setCornerRadius(
-            cornerRadiusTopLeft,
-            cornerRadiusTopRight,
-            cornerRadiusBottomLeft,
-            cornerRadiusBottomRight
-        )
+        createBackgroundBlurDrawable()?.let {
+            it.setBlurRadius(blurRadius)
+            it.setColor(applyOpacityToColour(backgroundColour, blurBackgroundColourOpacity))
+            it.setCornerRadius(
+                cornerRadiusTopLeft,
+                cornerRadiusTopRight,
+                cornerRadiusBottomLeft,
+                cornerRadiusBottomRight
+            )
 
-        background = blurDrawable
+            background = it
+        }
     }
 
     override fun onDetachedFromWindow() {

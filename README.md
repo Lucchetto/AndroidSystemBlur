@@ -1,6 +1,5 @@
 # AndroidSystemBlur
-Library to provide easy access to blur hidden API on Android 12 and above (PLATFORM APPS ONLY)
+Library to provide easy access to blur hidden API on Android 12 and above
 
 # TODO
-- Add Android Studio compilation support
-- Non platform apps support
+- Add blur not available fallback

@@ -9,7 +9,6 @@ import kotlin.math.roundToInt
 import androidx.core.graphics.ColorUtils
 import androidx.annotation.ColorInt
 
-import com.android.internal.graphics.drawable.BackgroundBlurDrawable
 
 class BlurLinearLayout @JvmOverloads constructor(
     context: Context,
@@ -84,17 +83,23 @@ class BlurLinearLayout @JvmOverloads constructor(
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
-        val blurDrawable: BackgroundBlurDrawable = getViewRootImpl().createBackgroundBlurDrawable()
-        blurDrawable.setBlurRadius(blurRadius)
-        blurDrawable.setColor(applyOpacityToColour(backgroundColour, blurBackgroundColourOpacity))
-        blurDrawable.setCornerRadius(
-            cornerRadiusTopLeft,
-            cornerRadiusTopRight,
-            cornerRadiusBottomLeft,
-            cornerRadiusBottomRight
-        )
+        createBackgroundBlurDrawable()?.let {
+            it.setBlurRadius(blurRadius)
+            it.setColor(
+                BlurFrameLayout.applyOpacityToColour(
+                    backgroundColour,
+                    blurBackgroundColourOpacity
+                )
+            )
+            it.setCornerRadius(
+                cornerRadiusTopLeft,
+                cornerRadiusTopRight,
+                cornerRadiusBottomLeft,
+                cornerRadiusBottomRight
+            )
 
-        background = blurDrawable
+            background = it
+        }
     }
 
     override fun onDetachedFromWindow() {
