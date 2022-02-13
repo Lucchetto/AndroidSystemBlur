@@ -87,8 +87,10 @@ class SystemBlurController(
 
     @RequiresApi(Build.VERSION_CODES.S)
     override fun onViewAttachedToWindow(_v: View) {
-        windowManager = getWindowManager(view.context)
-        windowManager?.addCrossWindowBlurEnabledListener(crossWindowBlurListener)
+        windowManager = getWindowManager(view.context).apply {
+            blurEnabled = isCrossWindowBlurEnabled
+            addCrossWindowBlurEnabledListener(crossWindowBlurListener)
+        }
 
         view.createBackgroundBlurDrawable()?.let {
             // Configure blur drawable with current values
