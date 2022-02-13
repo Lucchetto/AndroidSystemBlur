@@ -27,7 +27,12 @@ class SystemBlurController(
         blurEnabled = it
     }
 
-    private var blurDrawable: BackgroundBlurDrawable? = null
+    private val blurDrawable: BackgroundBlurDrawable?
+    get() {
+        return view.background?.let {
+            if (it is BackgroundBlurDrawable) it else null
+        }
+    }
 
     private var blurEnabled: Boolean = false
     set(value) {
@@ -78,17 +83,15 @@ class SystemBlurController(
             it.setBlurRadius(blurRadius)
             setCornerRadius(it, cornerRadius)
 
-            blurDrawable = it
             view.background = it
         }
     }
 
     override fun onViewDetachedFromWindow(_v: View) {
         // Clear blur drawable
-        if (view.background == blurDrawable) {
+        if (view.background is BackgroundBlurDrawable) {
             view.background = null
         }
-        blurDrawable = null
 
         windowManager?.removeCrossWindowBlurEnabledListener(crossWindowBlurListener)
         windowManager = null
