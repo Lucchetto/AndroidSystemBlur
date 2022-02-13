@@ -1,0 +1,16 @@
+android_library {
+    name: "AndroidSystemBlur",
+    resource_dirs: ["common/res"],
+    srcs: [
+        "common/java/**/*.kt",
+        "common/java/**/*.java",
+        "platform/java/**/*.kt",
+        "platform/java/**/*.java",
+    ],
+    static_libs: [
+        "androidx.core_core",
+    ],
+    manifest: "common/AndroidManifest.xml",
+    platform_apis: true,
+}
+

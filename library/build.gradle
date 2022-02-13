@@ -50,6 +50,14 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    sourceSets {
+        main {
+            java.srcDirs += ['src/common/java']
+            res.srcDirs = ['src/common/res']
+            manifest.srcFile 'src/common/AndroidManifest.xml'
+        }
+    }
 }
 
 dependencies {
