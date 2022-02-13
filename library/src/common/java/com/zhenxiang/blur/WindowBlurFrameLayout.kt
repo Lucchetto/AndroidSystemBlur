@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 
 import com.zhenxiang.blur.model.CornersRadius
 
-class BlurFrameLayout @JvmOverloads constructor(
+class WindowBlurFrameLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
