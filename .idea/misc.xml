@@ -6,9 +6,11 @@
         <entry key="../../../../../../../layout/custom_preview.xml" value="0.3302083333333333" />
         <entry key="../../../../../../layout/custom_preview.xml" value="0.5677083333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5395833333333333" />
+        <entry key="demo/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
