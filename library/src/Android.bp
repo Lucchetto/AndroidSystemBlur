@@ -14,3 +14,22 @@ android_library {
     platform_apis: true,
 }
 
+android_library {
+    name: "AndroidSystemBlur",
+    resource_dirs: ["common/res"],
+    srcs: [
+        "common/java/**/*.kt",
+        "common/java/**/*.java",
+        "main/java/**/*.kt",
+        "main/java/**/*.java",
+    ],
+    libs: [
+        "framework-hidden-api",
+    ],
+    static_libs: [
+        "androidx.core_core",
+    ],
+    manifest: "common/AndroidManifest.xml",
+    sdk_version: "current",
+    min_sdk_version: "21",
+}
