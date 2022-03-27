@@ -28,6 +28,7 @@ android_library {
     ],
     static_libs: [
         "androidx.core_core",
+        "hiddenapibypass",
     ],
     manifest: "common/AndroidManifest.xml",
     sdk_version: "current",

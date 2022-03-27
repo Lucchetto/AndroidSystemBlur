@@ -1,0 +1,5 @@
+android_library_import {
+    name: "hiddenapibypass",
+    aars: ["hiddenapibypass-4.3.aar"],
+    sdk_version: "current",
+}
