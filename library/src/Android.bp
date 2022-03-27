@@ -1,5 +1,5 @@
 android_library {
-    name: "AndroidSystemBlur",
+    name: "AndroidSystemBlur-platform",
     resource_dirs: ["common/res"],
     srcs: [
         "common/java/**/*.kt",
