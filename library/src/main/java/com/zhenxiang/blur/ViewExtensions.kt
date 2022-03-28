@@ -18,7 +18,11 @@ fun View.createBackgroundBlurDrawable(): BackgroundBlurDrawable? {
             "getViewRootImpl" /*, args*/
         ) as ViewRootImpl
 
-        viewRootImpl.createBackgroundBlurDrawable()
+        HiddenApiBypass.invoke(
+            ViewRootImpl::class.java,
+            viewRootImpl,
+            "createBackgroundBlurDrawable" /*, args*/
+        ) as BackgroundBlurDrawable
     } catch (e: Exception) {
         Log.w(null, e)
         null
