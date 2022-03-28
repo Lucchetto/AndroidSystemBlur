@@ -129,6 +129,7 @@ class SystemBlurController(
             }
             is ShapeDrawable -> bg.paint.color = backgroundColour
         }
+        bg?.invalidateSelf()
     }
 
     @RequiresApi(Build.VERSION_CODES.S)
