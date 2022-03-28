@@ -53,7 +53,7 @@ android {
 
     sourceSets {
         main {
-            java.srcDirs += ['src/common/java']
+            java.srcDirs = ['src/common/java', 'src/main/java']
             res.srcDirs = ['src/common/res']
             manifest.srcFile 'src/common/AndroidManifest.xml'
         }
