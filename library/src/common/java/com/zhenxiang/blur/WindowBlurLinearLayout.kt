@@ -19,39 +19,39 @@ class WindowBlurLinearLayout @JvmOverloads constructor(
     init {
         val a = attrs?.let {
             context.obtainStyledAttributes(
-                attrs, R.styleable.BlurLinearLayout, defStyleAttr, defStyleRes)
+                attrs, R.styleable.WindowBlurLinearLayout, defStyleAttr, defStyleRes)
         }
 
         if (a != null) {
-            val allEdgesCornerRadius = a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadius, 0)
+            val allEdgesCornerRadius = a.getDimensionPixelSize(R.styleable.WindowBlurLinearLayout_cornerRadius, 0)
 
             val cornerRadius = CornersRadius(
                 formatEdgeCornerRadius(
                     allEdgesCornerRadius,
-                    a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadiusTopLeft, -1)
+                    a.getDimensionPixelSize(R.styleable.WindowBlurLinearLayout_cornerRadiusTopLeft, -1)
                 ),
                 formatEdgeCornerRadius(
                     allEdgesCornerRadius,
-                    a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadiusTopRight, -1)
+                    a.getDimensionPixelSize(R.styleable.WindowBlurLinearLayout_cornerRadiusTopRight, -1)
                 ),
                 formatEdgeCornerRadius(
                     allEdgesCornerRadius,
-                    a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadiusBottomLeft, -1)
+                    a.getDimensionPixelSize(R.styleable.WindowBlurLinearLayout_cornerRadiusBottomLeft, -1)
                 ),
                 formatEdgeCornerRadius(
                     allEdgesCornerRadius,
-                    a.getDimensionPixelSize(R.styleable.BlurLinearLayout_cornerRadiusBottomRight, -1)
+                    a.getDimensionPixelSize(R.styleable.WindowBlurLinearLayout_cornerRadiusBottomRight, -1)
                 )
             )
 
             blurController = SystemBlurController(
                 this,
-                a.getColor(R.styleable.BlurLinearLayout_backgroundColour, Color.TRANSPARENT),
+                a.getColor(R.styleable.WindowBlurLinearLayout_backgroundColour, Color.TRANSPARENT),
                 a.getFloat(
-                    R.styleable.BlurLinearLayout_blurBackgroundColourOpacity,
+                    R.styleable.WindowBlurLinearLayout_blurBackgroundColourOpacity,
                     SystemBlurController.DEFAULT_BLUR_BACKGROUND_COLOUR_OPACITY
                 ),
-                a.getInteger(R.styleable.BlurLinearLayout_blurRadius, SystemBlurController.DEFAULT_BLUR_RADIUS),
+                a.getInteger(R.styleable.WindowBlurLinearLayout_blurRadius, SystemBlurController.DEFAULT_BLUR_RADIUS),
                 cornerRadius,
             )
 

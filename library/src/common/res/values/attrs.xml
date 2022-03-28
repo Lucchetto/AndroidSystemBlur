@@ -10,7 +10,7 @@
     <attr name="cornerRadiusBottomLeft" format="dimension" />
     <attr name="cornerRadiusBottomRight" format="dimension" />
 
-    <declare-styleable name="BlurLinearLayout">
+    <declare-styleable name="WindowBlurLinearLayout">
         <attr name="blurRadius" />
         <attr name="backgroundColour" />
         <attr name="blurBackgroundColourOpacity" />
@@ -21,7 +21,7 @@
         <attr name="cornerRadiusBottomRight" />
     </declare-styleable>
 
-    <declare-styleable name="BlurFrameLayout">
+    <declare-styleable name="WindowBlurFrameLayout">
         <attr name="blurRadius" />
         <attr name="backgroundColour" />
         <attr name="blurBackgroundColourOpacity" />
