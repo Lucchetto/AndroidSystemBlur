@@ -30,6 +30,10 @@ android_library {
         "androidx.core_core",
         "hiddenapibypass",
     ],
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
     manifest: "common/AndroidManifest.xml",
     sdk_version: "current",
     min_sdk_version: "21",
