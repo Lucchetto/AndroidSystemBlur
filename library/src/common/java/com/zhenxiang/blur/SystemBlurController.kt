@@ -37,6 +37,7 @@ class SystemBlurController(
         if (value != field) {
             field = value
             updateBackgroundColour()
+            updateBlurRadius()
         }
     }
 
@@ -53,14 +54,9 @@ class SystemBlurController(
         updateBackgroundColour()
     }
     var blurRadius = blurRadius
-    @SuppressLint("NewApi")
     set(value) {
         field = value
-
-        val bg = view.background
-        when (bg) {
-            is BackgroundBlurDrawable -> bg.setBlurRadius(value)
-        }
+        updateBlurRadius()
     }
     var cornerRadius = cornerRadius
     @SuppressLint("NewApi")
@@ -130,6 +126,14 @@ class SystemBlurController(
             is ShapeDrawable -> bg.paint.color = backgroundColour
         }
         bg?.invalidateSelf()
+    }
+
+    @SuppressLint("NewApi")
+    private fun updateBlurRadius() {
+        val bg = view.background
+        if (bg is BackgroundBlurDrawable) {
+            bg.setBlurRadius(if (blurEnabled) blurRadius else 0)
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.S)
