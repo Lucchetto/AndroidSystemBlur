@@ -9,6 +9,7 @@
     <attr name="cornerRadiusTopRight" format="dimension" />
     <attr name="cornerRadiusBottomLeft" format="dimension" />
     <attr name="cornerRadiusBottomRight" format="dimension" />
+    <attr name="clipToOutline" format="boolean" />
 
     <declare-styleable name="WindowBlurLinearLayout">
         <attr name="blurRadius" />
@@ -19,6 +20,7 @@
         <attr name="cornerRadiusTopRight" />
         <attr name="cornerRadiusBottomLeft" />
         <attr name="cornerRadiusBottomRight" />
+        <attr name="clipToOutline" />
     </declare-styleable>
 
     <declare-styleable name="WindowBlurFrameLayout">
@@ -30,5 +32,6 @@
         <attr name="cornerRadiusTopRight" />
         <attr name="cornerRadiusBottomLeft" />
         <attr name="cornerRadiusBottomRight" />
+        <attr name="clipToOutline" />
     </declare-styleable>
 </resources>

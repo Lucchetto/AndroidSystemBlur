@@ -55,6 +55,8 @@ class WindowBlurFrameLayout @JvmOverloads constructor(
                 cornerRadius,
             )
 
+            clipToOutline = a.getBoolean(R.styleable.WindowBlurFrameLayout_clipToOutline, false)
+
             a.recycle()
         } else {
             blurController = SystemBlurController(this)
