@@ -1,5 +1,6 @@
 package com.zhenxiang.blur
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Outline
@@ -52,6 +53,7 @@ class SystemBlurController(
         updateBackgroundColour()
     }
     var blurRadius = blurRadius
+    @SuppressLint("NewApi")
     set(value) {
         field = value
 
@@ -61,6 +63,7 @@ class SystemBlurController(
         }
     }
     var cornerRadius = cornerRadius
+    @SuppressLint("NewApi")
     set(value) {
         field = value
 
@@ -115,6 +118,7 @@ class SystemBlurController(
         windowManager = null
     }
 
+    @SuppressLint("NewApi")
     private fun updateBackgroundColour() {
         val bg = view.background
         when (bg) {
@@ -127,6 +131,7 @@ class SystemBlurController(
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
     private fun setCornerRadius(blurDrawable: BackgroundBlurDrawable, corners: CornersRadius) {
         blurDrawable.setCornerRadius(
             corners.topLeft, corners.topRight, corners.bottomLeft, corners.bottomRight)
